@@ -6,6 +6,11 @@ export const loginUser=createAsyncThunk("login/user",async({email,password})=>{
     return response.data;
 })
 
+export const registerUser=createAsyncThunk("register/user",async({name,email,password})=>{
+    const response=await axios.post("https://team-ora-backend.vercel.app/user/add",{name,email,password});
+    return response;
+})
+
 
 export const userSlice=createSlice({
     name:'user',
