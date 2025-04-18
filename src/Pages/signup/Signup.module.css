@@ -1,0 +1,39 @@
+/* Signup.module.css */
+.formWrapper {
+    max-width: 400px;
+    margin:100px auto;
+    padding: 2rem;
+    background: #f4f4f4;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid #aaa;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+  }
+  
+  .button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .button:active{
+    transform: scale(0.9);
+  }
+  
+  .linkText {
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
