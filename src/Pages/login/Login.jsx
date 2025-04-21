@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import styles from './Login.module.css';
-import { Link } from 'react-router-dom';
-import {useDispatch} from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 import { loginUser, setCurrentUser } from '../../utils/redux/slice/userSlice';
 import {jwtDecode} from "jwt-decode";
 import { toast } from 'react-toastify';
+import {ClipLoader} from 'react-spinners';
 
 const Login=()=> {
     const[email,setEmail]=useState("");
     const[password,setPassword]=useState("");
+    const{status}=useSelector(state=>state.user);
     const dispatch=useDispatch();
+    const navigate=useNavigate();
     const textCredentials={email:'ajinkya@test.com',password:'ajinkya'}
     const handleLogin=async(event)=>{
         event.preventDefault();
@@ -21,6 +24,7 @@ const Login=()=> {
         dispatch(setCurrentUser(decode));
         setEmail("");
         setPassword("");
+        navigate("/dashboard");
         }
         else{
           toast.error("Invalid Credentials");
@@ -41,7 +45,10 @@ const Login=()=> {
         <label htmlFor="loginPassword">Password:</label><br />
         <input type="password" id="loginPassword" className={styles.input} required value={password} onChange={event=>setPassword(event.target.value)} /><br />
 
-        <button type="submit" className={styles.button}>Login</button>
+        <button type="submit" className={styles.button}>{status === 'pending'? <ClipLoader
+  color="white"
+  size={20}
+/> : "Login"}</button>
       </form>
       <p className={styles.linkText}>
         New User? <Link to="/signup">Sign Up</Link>

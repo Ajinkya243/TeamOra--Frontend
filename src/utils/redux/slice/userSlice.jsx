@@ -36,6 +36,12 @@ export const userSlice=createSlice({
         .addCase(loginUser.rejected,state=>{
             state.status="rejected"
         })
+        .addCase(registerUser.pending,state=>{
+            state.status="pending"
+        })
+        .addCase(registerUser.fulfilled,state=>{
+            state.status="fulfilled"
+        })
     }
 })
 export const {setCurrentUser}=userSlice.actions;
