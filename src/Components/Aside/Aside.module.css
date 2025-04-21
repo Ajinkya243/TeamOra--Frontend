@@ -1,0 +1,39 @@
+.aside{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    padding:15px;
+    width:fit-content;
+    border-right:1px solid #333333;
+    height:100vh;
+    background-color:#f0f0f0;
+}
+.aside>*{
+    text-decoration:none;
+    display:flex;
+    gap:30px; 
+    color:#333333;
+}
+.link{
+    padding:10px;
+    border-radius:50px;
+}
+.active{
+    background-color:white;
+    span{
+        color:#B197FC;
+    }
+    .icon{
+        color:#B197FC;;
+    }
+}
+.link:hover{
+    background-color:white;
+    span{
+        color:#B197FC;
+    }
+    .icon{
+        color:#B197FC;;
+    }
+}
+
