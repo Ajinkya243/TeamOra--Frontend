@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Login.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
@@ -6,6 +6,7 @@ import { loginUser, setCurrentUser } from '../../utils/redux/slice/userSlice';
 import {jwtDecode} from "jwt-decode";
 import { toast } from 'react-toastify';
 import {ClipLoader} from 'react-spinners';
+import axios from 'axios';
 
 const Login=()=> {
     const[email,setEmail]=useState("");
@@ -35,6 +36,22 @@ const Login=()=> {
       setEmail(textCredentials.email);
       setPassword(textCredentials.password);
     }
+    useEffect(()=>{
+      const verifyToken=async()=>{
+      const token=localStorage.getItem('token');
+      if(token){
+        const response=await axios.get("https://team-ora-backend.vercel.app/token/verify", {headers: {
+          Authorization: token
+        }});
+        if(response.status===200){
+        dispatch(setCurrentUser(response.data));
+        navigate("/dashboard");
+        }
+      }
+    }
+    verifyToken();
+  
+  },[])
   return (
     <div className={styles.formWrapper}>
       <h2>Login</h2>
