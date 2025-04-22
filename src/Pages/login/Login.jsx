@@ -15,6 +15,7 @@ const Login=()=> {
     const dispatch=useDispatch();
     const navigate=useNavigate();
     const textCredentials={email:'ajinkya@test.com',password:'ajinkya'}
+    const token=localStorage.getItem('token');
     const handleLogin=async(event)=>{
         event.preventDefault();
         const token=await dispatch(loginUser({email,password}));
@@ -36,24 +37,40 @@ const Login=()=> {
       setEmail(textCredentials.email);
       setPassword(textCredentials.password);
     }
-    useEffect(()=>{
-      const verifyToken=async()=>{
-      const token=localStorage.getItem('token');
-      if(token){
-        const response=await axios.get("https://team-ora-backend.vercel.app/token/verify", {headers: {
-          Authorization: token
-        }});
-        if(response.status===200){
-        dispatch(setCurrentUser(response.data));
-        navigate("/dashboard");
+  
+
+  useEffect(() => {
+    const verifyToken = async () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          const response = await axios.get("https://team-ora-backend.vercel.app/token/verify", {
+            headers: {
+              Authorization: token 
+            }
+          });
+  
+          if (response.status === 200 && response.data) {
+            dispatch(setCurrentUser(response.data));
+            navigate("/dashboard");
+          } else {
+            localStorage.removeItem("token");
+          }
+  
+        } catch (error) {
+          console.error("Token verification failed:", error);
+          localStorage.removeItem("token");
         }
       }
-    }
-    verifyToken();
+    };
   
-  },[])
+    verifyToken();
+  }, []);
+  
+
   return (
-    <div className={styles.formWrapper}>
+    <>
+    {!token && <div className={styles.formWrapper}>
       <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <label htmlFor="loginEmail">Email:</label><br />
@@ -71,7 +88,8 @@ const Login=()=> {
         New User? <Link to="/signup">Sign Up</Link>
       </p>
       <button className={styles.button} onClick={handleTestCredentials}>Test Credentials</button>
-    </div>
+    </div>}
+    </>
   );
 }
 
