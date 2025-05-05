@@ -11,6 +11,13 @@ export const registerUser=createAsyncThunk("register/user",async({name,email,pas
     return response;
 })
 
+export const getUsers=createAsyncThunk("get/users",async()=>{
+    const response=await axios.get("https://team-ora-backend.vercel.app/user/list",{headers:{
+        'Authorization':localStorage.getItem('token')
+    }});
+    return response.data
+})
+
 
 export const userSlice=createSlice({
     name:'user',
@@ -41,6 +48,9 @@ export const userSlice=createSlice({
         })
         .addCase(registerUser.fulfilled,state=>{
             state.status="fulfilled"
+        })
+        .addCase(getUsers.fulfilled,(state,action)=>{
+            state.users=action.payload;
         })
     }
 })
