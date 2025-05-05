@@ -7,6 +7,8 @@
     border-right:1px solid #333333;
     height:100vh;
     background-color:#f0f0f0;
+    position: fixed;
+    top: 73px;
 }
 .aside>*{
     text-decoration:none;

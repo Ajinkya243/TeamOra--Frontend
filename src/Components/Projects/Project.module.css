@@ -1,0 +1,27 @@
+.details{
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+}
+.details:hover{
+    background-color: darkgrey;
+}
+.details h3{
+    margin: 0;
+}
+.btn{
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(36, 119, 252);
+    border: none;
+    color: white;
+}
+.btn:hover{
+    background-color: green;
+    cursor: pointer;
+}
+.btn:active{
+    transform: scale(0.9);
+}

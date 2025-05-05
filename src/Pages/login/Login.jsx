@@ -55,12 +55,17 @@ const Login=()=> {
             navigate("/dashboard");
           } else {
             localStorage.removeItem("token");
+            navigate("/");
           }
   
         } catch (error) {
           console.error("Token verification failed:", error);
           localStorage.removeItem("token");
+          navigate("/")
         }
+      }
+      else{
+        navigate("/")
       }
     };
   
