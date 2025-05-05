@@ -1,0 +1,13 @@
+.loader{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details{
+    margin-top: 73px;
+    margin-left: 161px;
+    box-sizing: border-box;
+    padding: 20px;
+}

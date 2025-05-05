@@ -9,7 +9,7 @@ import axios from "axios";
 
 export const userTasks=createAsyncThunk("user/tasks",async({id,status})=>{
     console.log(id,status);
-    const response=await axios("https://team-ora-backend.vercel.app/task/user",{params:{id,status}});
+    const response=await axios.get("https://team-ora-backend.vercel.app/task/user",{params:{id,status}});
     console.log(response);
     return response.data;
 })
@@ -20,10 +20,16 @@ export const postTask=createAsyncThunk("post/task",async(task)=>{
     return response;
 })
 
+export const getTaskByProject=createAsyncThunk("get/taskByProject",async(id)=>{
+    const response=await axios.get("https://team-ora-backend.vercel.app/task/project",{params:{id}});
+    return response.data;
+})
+
 const taskSlice=createSlice({
     name:'task',
     initialState:{
         userTask:[],
+        projectTask:[],
         taskStatus:'idle',
         error:null
     },
@@ -45,6 +51,9 @@ const taskSlice=createSlice({
         })
         .addCase(postTask.fulfilled,state=>{
             state.taskStatus="fulfilled"
+        })
+        .addCase(getTaskByProject.fulfilled,(state,action)=>{
+            state.projectTask=action.payload
         })
     }
 })

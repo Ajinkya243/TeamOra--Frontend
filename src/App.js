@@ -10,6 +10,8 @@ import { Provider } from 'react-redux';
 import {ToastContainer} from 'react-toastify';
 import Dashboard from './Pages/dashboard/Dashboard';
 import GlobalStateProvider from './utils/context/GlobalStateProvider';
+import ProjectDetails from './Pages/details/ProjectDetails';
+import Teams from './Pages/team/Teams';
 function App() {
   return (
     <>
@@ -21,6 +23,8 @@ function App() {
       <Route path="/" element={<Login/>} />
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route path="/project/details/:id" element={<ProjectDetails/>} />
+      <Route path="/team" element={<Teams/>} />
     </Routes>
     </BrowserRouter>
     </GlobalStateProvider>
