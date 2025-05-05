@@ -51,6 +51,7 @@ const Dashboard=()=>{
       if(response.payload.status===200){
         toast.success("Task added succesfully");
         setShowTaskModal(false);
+        window.location.reload();
       }
       else{
         toast.error("Error occur while adding task")
