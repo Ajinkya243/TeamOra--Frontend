@@ -10,7 +10,7 @@ import {persistReducer,persistStore} from 'redux-persist';
 const userPersistConfig={
     key:"user",
     storage,
-    whitelist:['user','currentUser']
+    whitelist:['users','currentUser']
 }
 const projectPersistConfig={
     key:"project",
@@ -25,7 +25,7 @@ const taskPersistConfig={
 const teamPersistConfig={
     key:'team',
     storage,
-    whitelist:['teams']
+    whitelist:['teams','team']
 }
 
 const userPersistedConfig=persistReducer(userPersistConfig,userReducer);

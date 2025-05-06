@@ -1,0 +1,96 @@
+.team{
+    margin-top: 73px;
+    margin-left: 161px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.teams-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+}
+.teams-grid>*{
+    background-color: lightgray;
+    text-align: center;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #303030;
+}
+.teams-grid>*:hover{
+    background-color: rgba(211, 211, 211, 0.486);
+    color: blue;
+}
+.team-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.btn{
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgba(0, 200, 255, 0.867);
+}
+.btn:hover{
+    background-color: rgb(92, 252, 6);
+    cursor: pointer;
+    color: white;
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow-y: scroll;
+}
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+.members-grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+}
+.btns{
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+    gap: 10px;
+}
+.btns>*{
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.btns>*:active{
+    transform: scale(0.9);
+}
+.cancel-btn{
+    background-color: rgb(130, 126, 126);  
+}
+.add-btn{
+    background-color: rgba(0, 191, 255, 0.719);
+}
+.loader{
+    display: flex;
+    justify-content: center;
+}
