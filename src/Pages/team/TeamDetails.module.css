@@ -1,0 +1,86 @@
+.team{
+    margin-top: 73px;
+    margin-left: 161px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.loader{
+    display: flex;
+    justify-content: center;
+}
+.member{
+    display: flex;
+    gap: 10px;
+}
+.member p:first-child{
+    background-color: rgba(0, 0, 255, 0.393);
+    width: 25px;
+    height: 25px;
+    border-radius: 100%;
+    text-align: center;
+}
+.btn{
+    background-color: rgba(0, 200, 255, 0.867);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color: rgb(63, 255, 5);
+    color: white;
+}
+.btn:active{
+    transform: scale(0.9);
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal{
+    background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 300px;
+  height: 200px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  overflow-y: scroll;
+}
+.modal-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+.btns{
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+    gap: 10px;
+}
+.btns>*{
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.btns>*:active{
+    transform: scale(0.9);
+}
+.cancel-btn{
+    background-color: rgb(130, 126, 126);
+    
+}
+.add-btn{
+    background-color: rgba(0, 191, 255, 0.719);
+    
+}
