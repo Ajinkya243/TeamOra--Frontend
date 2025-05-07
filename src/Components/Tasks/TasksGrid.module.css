@@ -50,3 +50,7 @@ align-self: center;
 .icon:hover{
     color: black;
 }
+.loader{
+    display: flex;
+    justify-content: center;
+}

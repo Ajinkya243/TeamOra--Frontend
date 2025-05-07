@@ -76,7 +76,8 @@ const Dashboard=()=>{
     let owners;
     if(task.team){
       const teamMembers=teams.find(el=>el._id===task.team);
-      owners=users.filter(el=>teamMembers.members.includes(el._id));
+      const memberIds = teamMembers.members.map(member => member._id);
+    owners = users.filter(user => memberIds.includes(user._id));
     }
     console.log(owners)
     return (
