@@ -13,6 +13,8 @@ import GlobalStateProvider from './utils/context/GlobalStateProvider';
 import ProjectDetails from './Pages/details/ProjectDetails';
 import Teams from './Pages/team/Teams';
 import TeamDetails from './Pages/team/TeamDetails';
+import Project from './Pages/details/Project';
+import TaskDetails from './Pages/task/TaskDetails';
 function App() {
   return (
     <>
@@ -24,9 +26,11 @@ function App() {
       <Route path="/" element={<Login/>} />
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route path="/project" element={<Project/>} />
       <Route path="/project/details/:id" element={<ProjectDetails/>} />
       <Route path="/team" element={<Teams/>} />
       <Route path="/team/:id" element={<TeamDetails/>}/>
+      <Route path="/task/:id" element={<TaskDetails/>}/>
     </Routes>
     </BrowserRouter>
     </GlobalStateProvider>

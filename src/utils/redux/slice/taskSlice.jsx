@@ -20,8 +20,19 @@ export const postTask=createAsyncThunk("post/task",async(task)=>{
     return response;
 })
 
-export const getTaskByProject=createAsyncThunk("get/taskByProject",async(id)=>{
-    const response=await axios.get("https://team-ora-backend.vercel.app/task/project",{params:{id}});
+export const getTaskByProject=createAsyncThunk("get/taskByProject",async({id,debounceInput})=>{
+    const response=await axios.get("https://team-ora-backend.vercel.app/task/project",{params:{id,debounceInput}});
+    return response.data;
+})
+
+export const getTaskById=createAsyncThunk('get/taskById',async(id)=>{
+    const response=await axios.get(`https://team-ora-backend.vercel.app/task/${id}`);
+    console.log(response);
+    return response.data;
+})
+export const setTaskComplete=createAsyncThunk("complete/task",async(id)=>{
+    const response=await axios.post(`https://team-ora-backend.vercel.app/task/${id}`);
+    console.log(response);
     return response.data;
 })
 
@@ -30,7 +41,9 @@ const taskSlice=createSlice({
     initialState:{
         userTask:[],
         projectTask:[],
+        task:{},
         taskStatus:'idle',
+        status:'idle',
         error:null
     },
     reducers:{},
@@ -52,8 +65,26 @@ const taskSlice=createSlice({
         .addCase(postTask.fulfilled,state=>{
             state.taskStatus="fulfilled"
         })
+        .addCase(getTaskByProject.pending,state=>{
+            state.taskStatus="pending"
+        })
         .addCase(getTaskByProject.fulfilled,(state,action)=>{
+            state.taskStatus='fulfilled'
             state.projectTask=action.payload
+        })
+        .addCase(getTaskById.pending,state=>{
+            state.taskStatus="pending"
+        })
+        .addCase(getTaskById.fulfilled,(state,action)=>{
+            state.taskStatus="fulfilled"
+            state.task=action.payload
+        })
+        .addCase(setTaskComplete.pending,state=>{
+            state.status="pending"
+        })
+        .addCase(setTaskComplete.fulfilled,(state,action)=>{
+            state.status="fullfiled"
+            state.task=action.payload;
         })
     }
 })

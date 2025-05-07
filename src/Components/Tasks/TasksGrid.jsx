@@ -2,12 +2,16 @@ import classes from './TasksGrid.module.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { useSelector } from 'react-redux';
+import { ClipLoader } from 'react-spinners';
 
 const TasksGrid=({tasks})=>{
+    const{taskStatus}=useSelector(state=>state.task);
     console.log(tasks);
     return(
         <div>
-        <div className={classes['grid-header']}>
+        {taskStatus==="pending" ? <div className={classes.loader}><ClipLoader/></div> : <>
+            <div className={classes['grid-header']}>
         <p>Tasks</p>
         <p>Owner</p>
         <p>Tags</p>
@@ -17,7 +21,7 @@ const TasksGrid=({tasks})=>{
         <p></p>
         </div>
         <div>
-        {tasks.map(el=>(
+        {tasks.length && tasks.map(el=>(
            <div className={classes['grid-data']}>
             <strong>{el.name}</strong>
             <div className={classes.owner}>
@@ -33,10 +37,14 @@ const TasksGrid=({tasks})=>{
             <p>{new Date(el.createdAt).toDateString()}</p>
             <p>{new Date(new Date(el.createdAt).setDate(new Date(el.createdAt).getDate()+el.timeToComplete)).toDateString()}</p>
             <p className={`${classes.status} ${classes[el.status]}`}>{el.status}</p>
-            <Link ><FontAwesomeIcon className={classes.icon} icon={faArrowRight} size="xl"  /></Link>
+            <Link to={`/task/${el._id}`}><FontAwesomeIcon className={classes.icon} icon={faArrowRight} size="xl" /></Link>
            </div> 
         ))}
+        {!tasks.length && <p>No such task found!</p>}
         </div>
+        </>}
+        
+        
         </div>
     )
 }

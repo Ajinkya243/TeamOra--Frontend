@@ -32,12 +32,18 @@ const Teams=()=>{
     }
 
     const handleAddTeam=async()=>{
-        const response=await dispatch(addTeam({name,members}));
+        if(members.length && name){
+             const response=await dispatch(addTeam({name,members}));
         if(response){
             toast.success("Team added successfully");
             setTeamsModal(false);
             dispatch(getTeams());
         }
+        }
+        else{
+            {!members.length ?toast.error("Please select at least one member."):toast.error("Please enter the team name")}
+        }
+       
     }
 
     useEffect(()=>{
@@ -75,7 +81,7 @@ const Teams=()=>{
             <br />
             <div>
                 <label htmlFor="inputName">Enter team name:</label>
-                <input type="text" onChange={e=>setName(e.target.value)}/>
+                <input type="text" required onChange={e=>setName(e.target.value)}/>
                 <br />
                 <label htmlFor="">Add members:</label>
                 <div className={classes['members-grid']}>

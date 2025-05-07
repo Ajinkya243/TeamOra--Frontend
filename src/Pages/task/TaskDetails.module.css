@@ -1,0 +1,82 @@
+.task{
+    margin-top: 73px;
+    margin-left: 161px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.loader{
+    display: flex;
+    justify-content: center;
+}
+.task-card {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .task-header h2 {
+    margin-bottom: 5px;
+    font-size: 1.5em;
+    color: #222;
+  }
+  
+  .task-header p {
+    margin: 0;
+    color: #666;
+  }
+  
+  .task-section {
+    margin-top: 15px;
+  }
+  
+  .task-section h3 {
+    margin-bottom: 5px;
+    font-size: 1.1em;
+    color: #444;
+  }
+  
+  .owner {
+    margin-left: 15px;
+    font-size: 0.95em;
+    color: #555;
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+  }
+  
+  .tag {
+    background-color: #e0f0ff;
+    color: #0077cc;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85em;
+  }
+  
+  .task-dates {
+    margin-top: 15px;
+    font-size: 0.95em;
+  }
+  .complete-btn {
+    background-color: #28a745; /* Green */
+    color: white;
+    padding: 10px 16px;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+  }
+  
+  .complete-btn:hover {
+    background-color: #218838;
+  }
+  
