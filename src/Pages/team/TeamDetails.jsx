@@ -17,8 +17,13 @@ const TeamDetails=()=>{
     const[teamModal,setTeamModal]=useState(false);
     const{users}=useSelector(state=>state.user);
     const[member,setMember]=useState("");
-    const memberIds=team.members.map(el=>el._id);
-    const filterMembers=users.filter(el=>!memberIds.includes(el._id));
+    let memberIds;
+    let filterMembers;
+    if(team.members){
+        memberIds=team.members.map(el=>el._id);
+        filterMembers =users.filter(el=>!memberIds.includes(el._id));
+    }
+   
     console.log(filterMembers);
     console.log(team);
 
