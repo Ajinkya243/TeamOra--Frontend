@@ -1,0 +1,31 @@
+.report{
+    margin-top: 73px;
+    margin-left: 161px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.chart{
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    align-items: center;
+}
+.chart>*{
+    border-bottom: 2px solid #333333;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.donught,.pie{
+    width: 500px;
+    background-color: white;
+    height: 300px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.bar{
+    background-color: white;
+    width: 700px;
+    height: 400px;
+}

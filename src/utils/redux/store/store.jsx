@@ -20,7 +20,7 @@ const projectPersistConfig={
 const taskPersistConfig={
     key:"task",
     storage,
-    whitelist:['userTask','projectTask','task']
+    whitelist:['userTask','projectTask','task','totalTasks']
 }
 const teamPersistConfig={
     key:'team',
