@@ -31,7 +31,6 @@ const ProjectDetails=()=>{
     const handleTaskAdd=async(e)=>{
           e.preventDefault();
           const response=await dispatch(postTask(task));
-          console.log(response);
           if(response.payload.status===200){
             toast.success("Task added succesfully");
             setShowTaskModal(false);
@@ -48,14 +47,11 @@ const ProjectDetails=()=>{
     useEffect(()=>{
         dispatch(getTaskByProject({id,debounceInput}));
     },[debounceInput]);
-    console.log(project);
     let owners;
     if(task.team){
       const teamMembers=teams.find(el=>el._id===task.team);
-      console.log(teamMembers);
       const memberIds = teamMembers.members.map(member => member._id);
     owners = users.filter(user => memberIds.includes(user._id));
-      console.log(owners);
     }
     return(
         <>

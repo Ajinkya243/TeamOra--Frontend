@@ -6,7 +6,6 @@ export const fetchProjects=createAsyncThunk('fetch/projects',async()=>{
 })
 export const addProject=createAsyncThunk("add/project",async(project)=>{
     const response=await axios.post("https://team-ora-backend.vercel.app/project/add",project);
-    console.log(response,response.data,response.status);
     return response;
 })
 export const findProjects=createAsyncThunk("find/project",async(str)=>{

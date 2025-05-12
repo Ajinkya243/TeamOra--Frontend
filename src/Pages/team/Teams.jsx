@@ -19,8 +19,6 @@ const Teams=()=>{
     const{users}=useSelector(state=>state.user);
     const[members,setMembers]=useState([]);
     const[name,setName]=useState("");
-    console.log(users);
-    console.log(teams);
     const handleMembers=(e)=>{
         const id=e.target.value
         if(e.target.checked){
@@ -50,7 +48,6 @@ const Teams=()=>{
         setTab('team');
         dispatch(getTeams());
     },[])
-    console.log('members',members)
     
     return(
         <>

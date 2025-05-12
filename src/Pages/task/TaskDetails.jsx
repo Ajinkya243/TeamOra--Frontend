@@ -13,8 +13,6 @@ const TaskDetails=()=>{
     const {id}=useParams();
     const{task,taskStatus,status}=useSelector(state=>state.task);
     const dispatch=useDispatch();
-    console.log(id);
-    console.log(task)
     const handleStatus=async()=>{
         const response=await dispatch(setTaskComplete(id));
         toast.success("Task mark as completed");

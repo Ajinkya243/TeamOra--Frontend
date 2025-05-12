@@ -1,22 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// export const userTasks=createAsyncThunk("user/tasks",async(id)=>{
-//     const response=await axios(`https://team-ora-backend.vercel.app/task/user/${id}`);
-//     console.log(response.data);
-//     return response.data;
-// })
+
 
 export const userTasks=createAsyncThunk("user/tasks",async({id,status})=>{
-    console.log(id,status);
+    
     const response=await axios.get("https://team-ora-backend.vercel.app/task/user",{params:{id,status}});
-    console.log(response);
     return response.data;
 })
 
 export const postTask=createAsyncThunk("post/task",async(task)=>{
     const response=await axios.post("https://team-ora-backend.vercel.app/task/add",task);
-    console.log(response);
     return response;
 })
 
@@ -27,12 +21,10 @@ export const getTaskByProject=createAsyncThunk("get/taskByProject",async({id,deb
 
 export const getTaskById=createAsyncThunk('get/taskById',async(id)=>{
     const response=await axios.get(`https://team-ora-backend.vercel.app/task/${id}`);
-    console.log(response);
     return response.data;
 })
 export const setTaskComplete=createAsyncThunk("complete/task",async(id)=>{
     const response=await axios.post(`https://team-ora-backend.vercel.app/task/${id}`);
-    console.log(response);
     return response.data;
 })
 export const getAllTasks=createAsyncThunk("get/allTasks",async()=>{

@@ -7,7 +7,6 @@ import { ClipLoader } from 'react-spinners';
 
 const TasksGrid=({tasks})=>{
     const{taskStatus}=useSelector(state=>state.task);
-    console.log(tasks);
     return(
         <div>
         {taskStatus==="pending" ? <div className={classes.loader}><ClipLoader/></div> : <>

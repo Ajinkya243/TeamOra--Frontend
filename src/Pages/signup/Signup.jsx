@@ -14,7 +14,6 @@ const Signup=()=> {
     const handleSignup=async(event)=>{
         event.preventDefault();
         const response=await dispatch(registerUser({name,email,password}));
-        console.log(response);
         if(response.payload.status===201){
           toast.success("Register Successfully")
           setTimeout(()=>{

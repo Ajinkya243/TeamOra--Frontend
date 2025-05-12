@@ -33,7 +33,6 @@ const Dashboard=()=>{
     const {currentUser,users}=useSelector(state=>state.user);
     const {userTask,taskStatus}=useSelector(state=>state.task);
     const debounceInput=useDebounce(input);
-    console.log(userTask)
     const handleProjectAdd=async(e)=>{
         e.preventDefault();
         const response=await dispatch(addProject(project));
@@ -47,7 +46,6 @@ const Dashboard=()=>{
     const handleTaskAdd=async(e)=>{
       e.preventDefault();
       const response=await dispatch(postTask(task));
-      console.log(response);
       if(response.payload.status===200){
         toast.success("Task added succesfully");
         setShowTaskModal(false);
@@ -80,7 +78,6 @@ const Dashboard=()=>{
       const memberIds = teamMembers.members.map(member => member._id);
     owners = users.filter(user => memberIds.includes(user._id));
     }
-    console.log(owners)
     return (
         <>
           {token && (
