@@ -16,6 +16,8 @@ import TeamDetails from './Pages/team/TeamDetails';
 import Project from './Pages/details/Project';
 import TaskDetails from './Pages/task/TaskDetails';
 import Report from './Pages/report/Report';
+import Profile from './Pages/profile/Profile';
+import ProtectedRoute from './routes/ProtectedRoute';
 function App() {
   return (
     <>
@@ -26,6 +28,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Login/>} />
       <Route path="/signup" element={<Signup/>}/>
+      <Route element={<ProtectedRoute/>}>
       <Route path="/dashboard" element={<Dashboard/>}/>
       <Route path="/project" element={<Project/>} />
       <Route path="/project/details/:id" element={<ProjectDetails/>} />
@@ -33,6 +36,8 @@ function App() {
       <Route path="/team/:id" element={<TeamDetails/>}/>
       <Route path="/task/:id" element={<TaskDetails/>}/>
       <Route path="/report" element={<Report/>} />
+      <Route path="/profile" element={<Profile/>} />
+      </Route>
     </Routes>
     </BrowserRouter>
     </GlobalStateProvider>

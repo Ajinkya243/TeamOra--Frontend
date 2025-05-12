@@ -1,0 +1,16 @@
+.profile{
+    margin-top: 73px;
+    margin-left: 161px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.tasks{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+}
+.tasks>*{
+  border: 1px solid #333333;
+  border-radius: 10px;
+  padding: 10px;
+}
