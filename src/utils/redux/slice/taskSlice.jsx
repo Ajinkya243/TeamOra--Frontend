@@ -35,12 +35,17 @@ export const setTaskComplete=createAsyncThunk("complete/task",async(id)=>{
     console.log(response);
     return response.data;
 })
+export const getAllTasks=createAsyncThunk("get/allTasks",async()=>{
+    const response=await axios.get("https://team-ora-backend.vercel.app/tasks");
+    return response.data
+})
 
 const taskSlice=createSlice({
     name:'task',
     initialState:{
         userTask:[],
         projectTask:[],
+        totalTasks:[],
         task:{},
         taskStatus:'idle',
         status:'idle',
@@ -85,6 +90,9 @@ const taskSlice=createSlice({
         .addCase(setTaskComplete.fulfilled,(state,action)=>{
             state.status="fullfiled"
             state.task=action.payload;
+        })
+        .addCase(getAllTasks.fulfilled,(state,action)=>{
+            state.totalTasks=action.payload
         })
     }
 })

@@ -12,7 +12,7 @@ import { ClipLoader } from "react-spinners";
 import { toast } from "react-toastify";
 import useDebounce from "../../utils/debounce/useDebounce";
 import Projects from "../../Components/Projects/Projects";
-import { postTask, userTasks } from "../../utils/redux/slice/taskSlice";
+import { getAllTasks, postTask, userTasks } from "../../utils/redux/slice/taskSlice";
 import Tasks from "../../Components/Tasks/Tasks";
 import { getTeams } from "../../utils/redux/slice/teamSlice";
 import { getUsers } from "../../utils/redux/slice/userSlice";
@@ -64,6 +64,7 @@ const Dashboard=()=>{
         setTab('dashboard');
         dispatch(getTeams());
         dispatch(getUsers());
+        dispatch(getAllTasks());
     },[]);
     useEffect(()=>{
       

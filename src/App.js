@@ -15,6 +15,7 @@ import Teams from './Pages/team/Teams';
 import TeamDetails from './Pages/team/TeamDetails';
 import Project from './Pages/details/Project';
 import TaskDetails from './Pages/task/TaskDetails';
+import Report from './Pages/report/Report';
 function App() {
   return (
     <>
@@ -31,6 +32,7 @@ function App() {
       <Route path="/team" element={<Teams/>} />
       <Route path="/team/:id" element={<TeamDetails/>}/>
       <Route path="/task/:id" element={<TaskDetails/>}/>
+      <Route path="/report" element={<Report/>} />
     </Routes>
     </BrowserRouter>
     </GlobalStateProvider>

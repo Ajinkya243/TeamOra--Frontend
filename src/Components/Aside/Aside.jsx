@@ -10,7 +10,7 @@ const Aside=()=>{
          <Link to="/dashboard" className={`${classes.link} ${tab==='dashboard'?classes.active:''}`}><FontAwesomeIcon className={classes.icon} icon={faHouseChimney} size="xl"  /><span>Home</span></Link>
          <Link to="/project" className={`${classes.link} ${tab==="project"?classes.active:''}`}><FontAwesomeIcon className={classes.icon} icon={faList} size="xl"  /><span>Projects</span></Link>
          <Link to="/team" className={`${classes.link} ${tab==='team'?classes.active:''}`}><FontAwesomeIcon className={classes.icon} icon={faPeopleGroup} size="xl"  /><span>Team</span></Link>
-         <Link className={classes.link}><FontAwesomeIcon className={classes.icon} icon={faBolt} size="xl"  /><span>Reports</span></Link>
+         <Link to="/report" className={`${classes.link} ${tab==='report'?classes.active:''}`}><FontAwesomeIcon className={classes.icon} icon={faBolt} size="xl"  /><span>Reports</span></Link>
          <Link className={classes.link}><FontAwesomeIcon className={classes.icon} icon={faUser} size="xl"  /><span>Profile</span></Link>
         </div>
     )
