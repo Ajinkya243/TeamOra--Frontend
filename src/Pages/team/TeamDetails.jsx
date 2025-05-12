@@ -23,9 +23,6 @@ const TeamDetails=()=>{
         memberIds=team.members.map(el=>el._id);
         filterMembers =users.filter(el=>!memberIds.includes(el._id));
     }
-   
-    console.log(filterMembers);
-    console.log(team);
 
     const handleAddMember=async()=>{
         const response=await dispatch(addTeamMember({id:team._id,member}));

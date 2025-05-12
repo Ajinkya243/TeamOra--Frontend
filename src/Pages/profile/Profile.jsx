@@ -10,7 +10,7 @@ const Profile=()=>{
     const{setTab}=useGlobalState();
     const {userTask}=useSelector(state=>state.task);
     const{currentUser}=useSelector(state=>state.user);
-    console.log(userTask);
+    
     useEffect(()=>{
         setTab('profile');
     },[])
