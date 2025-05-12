@@ -8,7 +8,7 @@ import Projects from "../../Components/Projects/Projects";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { ClipLoader } from "react-spinners";
-import { addProject } from "../../utils/redux/slice/projectSlice";
+import { addProject, findProjects } from "../../utils/redux/slice/projectSlice";
 import { toast } from "react-toastify";
 
 const Project=()=>{
@@ -28,6 +28,7 @@ const Project=()=>{
     }
     useEffect(()=>{
         setTab('project');
+        dispatch(findProjects(''))
     },[])
     return(
         <>
@@ -38,8 +39,9 @@ const Project=()=>{
         <h2>List Of Projects</h2>
         <button className={classes.btn} onClick={()=>setShowModal(true)}>+ Add Project</button>
         </div>
+        {status === 'pending' && <div style={{display:'flex',justifyContent:'center'}}><ClipLoader/></div>}
         <div className={classes['project-grid']}>
-        {projects.map(el=>(
+        {status!=='pending' && projects.map(el=>(
             <Projects  project={el}/>
         ))}
         </div>
