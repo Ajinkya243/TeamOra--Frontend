@@ -24,7 +24,7 @@ Backend repository - https://github.com/Ajinkya243/TeamOra---Backend
 ### Frontend
 - React
 - React Router
-- Context API
+- Redux toolkit
 - Axios
 - CSS Modules
 
